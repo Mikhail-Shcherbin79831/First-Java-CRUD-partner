@@ -31,11 +31,12 @@ public class MainView extends VerticalLayout {
 		this.addNewBtn = new Button("New customer", VaadinIcon.PLUS.create());
 
 		// build layout
-		HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
+		Button clearBtn = new Button("Clear", e -> filter.clear());
+		HorizontalLayout actions = new HorizontalLayout(filter, clearBtn, addNewBtn);
 		add(actions, grid, editor);
 
 		grid.setHeight("300px");
-		grid.setColumns("id", "firstName", "lastName");
+		grid.setColumns("id", "firstName", "lastName", "email");
 		grid.getColumnByKey("id").setWidth("50px").setFlexGrow(0);
 
 		filter.setPlaceholder("Filter by last name");
